@@ -1,0 +1,88 @@
+.note {
+  position: absolute;
+  padding: 12px 14px;
+  border-radius: var(--note-radius);
+  box-shadow: 0 4px 10px var(--color-shadow);
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: box-shadow 120ms ease-out;
+  will-change: transform;
+}
+
+.note.dragging {
+  cursor: grabbing;
+  box-shadow: 0 10px 24px var(--color-shadow);
+  z-index: 9999 !important;
+}
+
+.note.willDelete {
+  opacity: 0.4;
+  outline: 2px dashed var(--color-trash-armed);
+  outline-offset: -2px;
+}
+
+.colorBar {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 8px;
+  flex-shrink: 0;
+}
+
+.colorDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  padding: 0;
+  background: transparent;
+}
+
+.colorDot.active {
+  outline: 2px solid rgba(0, 0, 0, 0.6);
+  outline-offset: 1px;
+}
+
+.body {
+  flex: 1;
+  font-size: 14px;
+  line-height: 1.35;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow: auto;
+  min-height: 0;
+}
+
+.placeholder {
+  opacity: 0.4;
+}
+
+.editor {
+  flex: 1;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.35;
+  border: none;
+  outline: none;
+  background: transparent;
+  resize: none;
+  color: inherit;
+  padding: 0;
+  min-height: 0;
+}
+
+.resizeHandle {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 16px;
+  height: 16px;
+  cursor: nwse-resize;
+  touch-action: none;
+  background:
+    linear-gradient(135deg, transparent 50%, rgba(0, 0, 0, 0.25) 50%, rgba(0, 0, 0, 0.25) 60%, transparent 60%, transparent 70%, rgba(0, 0, 0, 0.25) 70%, rgba(0, 0, 0, 0.25) 80%, transparent 80%);
+}
